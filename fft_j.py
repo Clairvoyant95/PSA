@@ -23,9 +23,23 @@ max_freq = max(fregiencies_in_my_signal)
 
 my_signal_range = range(min_freq, max_freq)
 
-#if my_signal_range in organy:
-#    print "da sie zagrac na organach"
-#elif: my_signal_range
+if my_signal_range in organy:
+    print "da sie zagrac na organach"
+elif my_signal_range in fortepian:
+    print "da sie zagrac na fortepianie"
+elif my_signal_range in kontrabas:
+    print "da sie zagrac na kontrabasie"
+elif my_signal_range in skrzypce:
+    print "da sie zagrac na skrzypcach"
+elif my_signal_range in gitara:
+    print "da sie zagrac na gitarze"
+elif my_signal_range in saksofon_tenorowy:
+    print "da sie zagrac na saksofonie tenorowym"
+elif my_signal_range in flet:
+    print "da sie zagrac na flecie"
+elif my_signal_range in flet_piccolo:
+    print "da sie zagrac na flecie piccolo"
+
 
 
 for instrument in instrument_list:
