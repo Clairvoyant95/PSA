@@ -16,10 +16,10 @@ flet_piccolo = range(587, 4186)
 
 instrument_list = [organy, fortepian, kontrabas, skrzypce, gitara, saksofon_tenorowy, flet, flet_piccolo]
 
-fregiencies_in_my_signal = numpy.fft.freq...(my_file)
+freqiencies_in_my_signal = numpy.fft.freq...(my_file)
 
-min_freq = fregiencies_in_my_signal.min
-max_freq = max(fregiencies_in_my_signal)
+min_freq = freqiencies_in_my_signal.min
+max_freq = max(freqiencies_in_my_signal)
 
 my_signal_range = range(min_freq, max_freq)
 
