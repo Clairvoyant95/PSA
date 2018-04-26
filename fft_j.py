@@ -1,8 +1,10 @@
-import wave
-import numpy
+import numpy as np
+import scipy.io.wavfile as wavfile
 import scipy
 
-my_file = wave.open('<sciezka>', 'rb') # otwieranie pliku
+my_file = wavfile.open('<sciezka>', 'rb') # otwieranie pliku
+fds = my_file.getframerate()
+
 
 
 organy = range(16, 15804)
@@ -14,12 +16,12 @@ saksofon_tenorowy = range(51, 670)
 flet = range(261, 2093)
 flet_piccolo = range(587, 4186)
 
-instrument_list = [organy, fortepian, kontrabas, skrzypce, gitara, saksofon_tenorowy, flet, flet_piccolo]
+instrument_list = {organy, fortepian, kontrabas, skrzypce, gitara, saksofon_tenorowy, flet, flet_piccolo]
 
-freqiencies_in_my_signal = numpy.fft.freq...(my_file)
+freq_in_my_signal = np.fft.freq(my_file)
 
-min_freq = freqiencies_in_my_signal.min
-max_freq = max(freqiencies_in_my_signal)
+min_freq = freq_in_my_signal.min
+max_freq = max(freq_in_my_signal)
 
 my_signal_range = range(min_freq, max_freq)
 
