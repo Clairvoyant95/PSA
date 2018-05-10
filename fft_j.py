@@ -1,10 +1,10 @@
 import numpy as np
 import scipy.io.wavfile as wavfile
 import scipy
+import wave
 
-my_file = wavfile.open('<sciezka>', 'rb') # otwieranie pliku
+my_file = wavfile.open('projekt.wav', 'rb')  # otwieranie pliku
 fds = my_file.getframerate()
-
 
 
 organy = range(16, 15804)
@@ -16,7 +16,7 @@ saksofon_tenorowy = range(51, 670)
 flet = range(261, 2093)
 flet_piccolo = range(587, 4186)
 
-instrument_list = {organy, fortepian, kontrabas, skrzypce, gitara, saksofon_tenorowy, flet, flet_piccolo]
+instrument_list = [organy, fortepian, kontrabas, skrzypce, gitara, saksofon_tenorowy, flet, flet_piccolo]
 
 freq_in_my_signal = np.fft.freq(my_file)
 
@@ -45,5 +45,5 @@ elif my_signal_range in flet_piccolo:
 
 
 for instrument in instrument_list:
-    if my_signal_range in instrument_list[:value]
+    if my_signal_range in instrument_list[:value]:
         print ("da sie zagrac na instrumencie" + instrument[key:])
