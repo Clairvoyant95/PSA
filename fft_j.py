@@ -1,11 +1,12 @@
-import numpy as np
-import scipy.io.wavfile as wavfile
-import scipy
-import wave
+from scipy.fftpack import fft
+from scipy.io import wavfile
 
-my_file = wavfile.open('projekt.wav', 'rb')  # otwieranie pliku
-fds = my_file.getframerate()
 
+NFFT = 2**8
+
+my_file = wavfile.read('projekt.wav', 'rb')   # otwieranie pliku
+a = my_file.T[0]
+b = [(ele/NFFT)*2-1 for ele in a]
 
 organy = range(16, 15804)
 fortepian = range(27, 4186)
@@ -18,9 +19,9 @@ flet_piccolo = range(587, 4186)
 
 instrument_list = [organy, fortepian, kontrabas, skrzypce, gitara, saksofon_tenorowy, flet, flet_piccolo]
 
-freq_in_my_signal = np.fft.freq(my_file)
+freq_in_my_signal = fft(b)
 
-min_freq = freq_in_my_signal.min
+min_freq = min(freq_in_my_signal)
 max_freq = max(freq_in_my_signal)
 
 my_signal_range = range(min_freq, max_freq)
@@ -42,8 +43,6 @@ elif my_signal_range in flet:
 elif my_signal_range in flet_piccolo:
     print ("da sie zagrac na flecie piccolo")
 
-
-
-for instrument in instrument_list:
-    if my_signal_range in instrument_list[:value]:
-        print ("da sie zagrac na instrumencie" + instrument[key:])
+#for instrument in instrument_list:
+    #if my_signal_range in instrument_list[:value]:
+        #print ("da sie zagrac na instrumencie" + instrument[key:])
